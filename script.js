@@ -7,7 +7,6 @@ const highScoreText = document.getElementById("highScore");
 
 //Game variables
 const gridSize = 20;
-let prevPositions = [];
 let snake = [{ x: 10, y: 10 }];
 let food = generateFood();
 let highScore = 0;
@@ -26,10 +25,9 @@ function draw() {
 
 //Draw Snake function
 function drawSnake() {
-  snake.forEach((segment, index) => {
+  snake.forEach((segment) => {
     const snakeElement = createGameElement("div", "snake");
-    const prevSegment = prevPositions[index];
-    setPosition(snakeElement, segment, prevSegment);
+    setPosition(snakeElement, segment);
     board.appendChild(snakeElement);
   });
 }
@@ -42,16 +40,7 @@ function createGameElement(tag, className) {
 }
 
 //Set snake and food position
-function setPosition(element, position, prevPosition) {
-  if (prevPosition) {
-    const dx = position.x - prevPosition.x;
-    const dy = position.y - prevPosition.y;
-    const offsetX = dx * 100; // Adjust if grid size changes
-    const offsetY = dy * 100; // Adjust if grid size changes
-    element.style.transform = `translate(${offsetX}%, ${offsetY}%)`;
-  } else {
-    element.style.transform = "";
-  }
+function setPosition(element, position) {
   element.style.gridColumn = position.x;
   element.style.gridRow = position.y;
 }
@@ -88,9 +77,10 @@ function move() {
     case "right":
       head.x++;
       break;
-  }
 
-  prevPositions = snake.map((segment) => ({ ...segment }));
+    default:
+      break;
+  }
 
   snake.unshift(head);
 
@@ -106,10 +96,7 @@ function move() {
   } else {
     snake.pop();
   }
-
-  draw();
 }
-
 /*--------Snake movement end--------*/
 
 /*--------Game start function--------*/
@@ -120,19 +107,9 @@ function startGame() {
   gameInterval = setInterval(() => {
     move();
     checkCollision();
-  }, gameSpeedDelay / 2); // Increase drawing frequency
-
-  // Additional draw loop for smoother animation
-  requestAnimationFrame(drawLoop);
+    draw();
+  }, gameSpeedDelay);
 }
-
-function drawLoop() {
-  draw();
-  if (gameStarted) {
-    requestAnimationFrame(drawLoop);
-  }
-}
-
 /*--------Game start end--------*/
 
 //Key event listener
