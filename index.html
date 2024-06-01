@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
     <title>SnakeRetro</title>
@@ -14,30 +14,35 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div>
-      <div class="scores">
-        <h1 id="score">000</h1>
-        <h1 id="highScore">000</h1>
-      </div>
-      <div class="game-border">
-        <div class="game-border2">
-          <div class="game-border3">
-            <div id="game-board"></div>
+    <div class="container">
+      <div class="game-area">
+        <div class="scores">
+          <h1 id="score">000</h1>
+          <h1 id="highScore">000</h1>
+        </div>
+        <div class="game-border">
+          <div class="game-border2">
+            <div class="game-border3">
+              <div id="game-board"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <h1 id="instruction">Press space to start</h1>
-    <img id="logo" src="" alt="SNAKE" />
-
-    <div id="footer">
-      <h2>Inspired by the freeCodeCamp project</h2>
-      <p id="adnotations">
-        Link to the original project:
-        <a href="https://www.youtube.com/watch?v=uyhzCBEGaBY" target="_blank"
-          >https://www.youtube.com/watch?v=uyhzCBEGaBY</a
-        >
-      </p>
+      <div class="instructions">
+        <h1 id="instruction">Press space to start</h1>
+        <img id="logo" src="obraz.png" alt="SNAKE" />
+        <div id="footer">
+          <h2>Inspired by the freeCodeCamp project</h2>
+          <p id="adnotations">
+            Link to the original project:
+            <a
+              href="https://www.youtube.com/watch?v=uyhzCBEGaBY"
+              target="_blank"
+              >https://www.youtube.com/watch?v=uyhzCBEGaBY</a
+            >
+          </p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
