@@ -14,37 +14,82 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class="game-area">
-        <div class="scores">
-          <h1 id="score">000</h1>
-          <h1 id="highScore">000</h1>
-        </div>
-        <div class="game-border">
-          <div class="game-border2">
-            <div class="game-border3">
-              <div id="game-board"></div>
-            </div>
+    <div class="header">
+      <div class="logo-section">
+        <img id="logo" src="snakelogo.png" alt="SNAKE" />
+        <h1 class="game-title">SNAKE</h1>
+      </div>
+    </div>
+    
+    <div class="main-container">
+      <div class="left-panel">
+        <div id="controls" class="controls">
+          <h3>CONTROLS</h3>
+          <div class="control-item">
+            <span class="key">↑↓←→</span>
+            <span class="desc">Move</span>
+          </div>
+          <div class="control-item">
+            <span class="key">P</span>
+            <span class="desc">Pause</span>
+          </div>
+          <div class="control-item">
+            <span class="key">R</span>
+            <span class="desc">Restart</span>
           </div>
         </div>
       </div>
-      <div class="instructions">
-        <h1 id="instruction">Press space to start</h1>
-        <img id="logo" src="obraz.png" alt="SNAKE" />
-        <div id="footer">
-          <h2>Inspired by the freeCodeCamp project</h2>
-          <p id="adnotations">
-            Link to the original project:
-            <a
-              href="https://www.youtube.com/watch?v=uyhzCBEGaBY"
-              target="_blank"
-              >https://www.youtube.com/watch?v=uyhzCBEGaBY</a
-            >
-            <p>JavaScript code used in this project is not fully my work</p>
-            <p>August A. 2024</p>
-          </p>
+      
+      <div class="center-panel">
+        <div class="game-area">
+          <div class="scores">
+            <h1 id="score">000</h1>
+            <h1 id="highScore">000</h1>
+          </div>
+          <div class="game-border">
+            <div id="game-board"></div>
+          </div>
+          <h1 id="instruction">Press SPACE to start</h1>
+        </div>
+      </div>
+      
+      <div class="right-panel">
+        <div id="game-stats" class="game-stats">
+          <h3>GAME STATS</h3>
+          <div class="stat-item">
+            <span class="stat-label">Time:</span>
+            <span id="game-time">00:00</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Speed:</span>
+            <span id="game-speed">1x</span>
+          </div>
+        </div>
+        
+        <div id="leaderboard" class="leaderboard">
+          <h3>TOP SCORES</h3>
+          <ol id="scores-list"></ol>
         </div>
       </div>
     </div>
+    
+    <div id="game-over" class="game-over hidden">
+      <h2>GAME OVER</h2>
+      <p id="final-score">Final Score: 000</p>
+      <p id="new-high-score" class="new-high-score hidden">NEW HIGH SCORE!</p>
+      <button id="play-again" class="retro-button">PLAY AGAIN</button>
+    </div>
+    
+    <footer id="footer">
+      <h2>Inspired by the freeCodeCamp project</h2>
+      <p id="adnotations">
+        Link to the original project:
+        <a
+          href="https://www.youtube.com/watch?v=uyhzCBEGaBY"
+          target="_blank"
+          >https://www.youtube.com/watch?v=uyhzCBEGaBY</a
+        >
+      </p>
+    </footer>
   </body>
 </html>
